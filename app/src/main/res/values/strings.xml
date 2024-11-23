@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Card data</string>
+    <string name="edit_text_name">Имя</string>
+    <string name="edit_text_famaly">Фамилия</string>
+    <string name="button_saveCard">Сохранить</string>
+    <string name="edit_text_birthday">Дата рождения: 25.02.1988</string>
+    <string name="button_save">Сохранить</string>
+    <string name="menu_exit">Выход</string>
+    <string name="text_view_age">Возраст</string>
+    <string name="image_view_photo">фото</string>
+    <string name="edit_text_phone">Номер телефона</string>
+</resources>
