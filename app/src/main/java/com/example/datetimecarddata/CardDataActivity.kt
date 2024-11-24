@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.time.format.DateTimeParseException
 import java.time.temporal.ChronoUnit
 
 class CardDataActivity : AppCompatActivity() {
@@ -59,12 +60,21 @@ class CardDataActivity : AppCompatActivity() {
         nameTV.text = name
         surNameTV.text = surName
         phoneTV.text = phone
-        ageTV.text = """
+        if (list[2] == "некорректно") {
+            ageTV.text = """
+                ${list[0]}
+                ${list[1]} ${list[2]}
+            """.trimIndent()
+        }
+        else {
+            ageTV.text = """
             ${list[0]} лет
             До дня рождения:
             ${list[1]} месяцев
             ${list[2]} дней
         """.trimIndent()
+        }
+
         if (person.image != "null") imageIV.setImageURI(image)
     }
 
@@ -82,7 +92,11 @@ class CardDataActivity : AppCompatActivity() {
 
     fun ageAndDaysBeforeBirthday(birthday: String): List<String> {
         val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
-        val dateBirthday = LocalDate.parse(birthday, formatter)
+        val dateBirthday = try {
+            LocalDate.parse(birthday, formatter)
+        } catch (e: DateTimeParseException) {
+            return listOf("Данные дня рождения", "введены", "некорректно")
+        }
 
         val dateNow = LocalDate.now()
         val yearNow = dateNow.year
