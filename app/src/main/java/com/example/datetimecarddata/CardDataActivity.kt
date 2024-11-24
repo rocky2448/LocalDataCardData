@@ -61,12 +61,11 @@ class CardDataActivity : AppCompatActivity() {
         phoneTV.text = phone
         ageTV.text = """
             ${list[0]} лет
-            До дня рождения ${list[1]} месяцев ${list[2]} дней
+            До дня рождения:
+            ${list[1]} месяцев
+            ${list[2]} дней
         """.trimIndent()
-        if (image != null) {
-            imageIV.setImageURI(image)
-        }
-
+        if (person.image != "null") imageIV.setImageURI(image)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

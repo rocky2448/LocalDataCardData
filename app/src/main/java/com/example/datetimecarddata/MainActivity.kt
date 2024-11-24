@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         saveBTN = findViewById(R.id.saveBTN)
 
         setSupportActionBar(toolbarMain)
-        title = "Карточка данных"
+        title = getString(R.string.title_toolbar)
         toolbarMain.subtitle = "by Rocky"
 
         photoPickerLauncher =
@@ -69,8 +69,8 @@ class MainActivity : AppCompatActivity() {
             if (nameET.text.isEmpty() ||
                 surNameET.text.isEmpty() ||
                 birthdayET.text.isEmpty() ||
-                phoneET.text.isEmpty()/* ||
-                photoUri == null*/
+                phoneET.text.isEmpty() ||
+                photoUri == null
             ) return@setOnClickListener
 
             val name = nameET.text.toString()
